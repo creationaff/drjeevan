@@ -2,16 +2,16 @@
   {
     "title": "Neurology consult",
     "description": "Assessment of headaches, neuropathy, movement and sleep concerns, with a clear plan.",
-    "image": "https://source.unsplash.com/1600x1200/?neurology,doctor,consultation"
+    "image": "assets/ayurveda-set-1.jpg"
   },
   {
     "title": "Osteopathic manual therapy",
     "description": "Gentle techniques to restore motion, reduce pain, and support self-regulation.",
-    "image": "https://source.unsplash.com/1600x1200/?osteopathy,manual-therapy,physiotherapy"
+    "image": "assets/ayurveda-set-2.jpg"
   },
   {
     "title": "Shirodhara (Ayurveda)",
     "description": "Warm oil stream therapy traditionally used to calm the nervous system.",
-    "instagram": "https://www.instagram.com/p/Bl8GVeRnZq5/"
+    "image": "assets/shirodhara.jpg"
   }
 ]
