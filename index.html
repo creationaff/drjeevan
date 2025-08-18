@@ -22,7 +22,7 @@
       <nav class="nav">
         <a href="#services">Services</a>
         <a href="#about">About</a>
-        <a id="ig-top" href="https://ig.me/m/DRJEEVAN_USERNAME" rel="noopener" target="_blank">Instagram</a>
+        <a id="ig-top" href="https://ig.me/m/ayurvedadrjeevan" rel="noopener" target="_blank">Instagram</a>
       </nav>
     </div>
   </header>
@@ -34,7 +34,7 @@
           <h1>Neurologist, Ayurvedic Doctor & Osteopath</h1>
           <p class="subtitle">Holistic, evidence-informed care for nervous system health, pain, and mobility.</p>
           <div class="cta-row">
-            <a id="ig-cta" class="button primary" href="https://ig.me/m/DRJEEVAN_USERNAME" target="_blank" rel="noopener">Message on Instagram</a>
+            <a id="ig-cta" class="button primary" href="https://ig.me/m/ayurvedadrjeevan" target="_blank" rel="noopener">Message on Instagram</a>
             <a class="button ghost" href="#services">View services</a>
           </div>
           <p class="note">Prefer Instagram DMs for the fastest response.</p>
@@ -79,6 +79,13 @@
         <p>Dr Jeevan integrates conventional neurology with Ayurvedic medicine and osteopathic principles to deliver whole-person care. Treatment plans are collaborative and tailored to your goals.</p>
       </div>
     </section>
+    <section id="instagram" class="section">
+      <div class="container">
+        <h2>From Instagram</h2>
+        <div id="ig-grid" class="ig-grid"></div>
+        <div class="muted" style="margin-top:12px">Follow <a href="https://www.instagram.com/ayurvedadrjeevan/" target="_blank" rel="noopener">@ayurvedadrjeevan</a> for updates.</div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -88,14 +95,14 @@
         <div class="muted">Neurologist • Ayurvedic Doctor • Osteopath</div>
       </div>
       <div class="footer-cta">
-        <a id="ig-footer" class="button small" href="https://ig.me/m/DRJEEVAN_USERNAME" target="_blank" rel="noopener">Message on Instagram</a>
+        <a id="ig-footer" class="button small" href="https://ig.me/m/ayurvedadrjeevan" target="_blank" rel="noopener">Message on Instagram</a>
       </div>
     </div>
   </footer>
 
   <script>
     (function () {
-      var username = 'DRJEEVAN_USERNAME'; // TODO: replace with actual username
+      var username = 'ayurvedadrjeevan';
       function tryOpenInstagramApp(event) {
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (!isMobile) return; // use web on desktop
@@ -119,6 +126,33 @@
         var el = document.getElementById(id);
         if (el) el.addEventListener('click', tryOpenInstagramApp);
       });
+    })();
+  </script>
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById('ig-grid');
+      if (!grid) return;
+      fetch('instagram.json', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .then(function (posts) {
+          if (!Array.isArray(posts) || posts.length === 0) return;
+          posts.forEach(function (url) {
+            if (!url || typeof url !== 'string') return;
+            var block = document.createElement('blockquote');
+            block.className = 'instagram-media';
+            block.setAttribute('data-instgrm-permalink', url);
+            block.setAttribute('data-instgrm-version', '14');
+            block.style.background = 'transparent';
+            block.style.border = '0';
+            block.style.margin = '0';
+            grid.appendChild(block);
+          });
+          if (window.instgrm && window.instgrm.Embeds) {
+            window.instgrm.Embeds.process();
+          }
+        })
+        .catch(function () { /* no-op */ });
     })();
   </script>
 </body>

@@ -22,7 +22,7 @@ services:
     routes:
       - type: redirect
         source: /instagram
-        destination: https://ig.me/m/DRJEEVAN_USERNAME
+        destination: https://ig.me/m/ayurvedadrjeevan
         status: 302
     # Replace with your real domain in Render after repo connect
     # domains:

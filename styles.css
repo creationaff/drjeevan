@@ -107,6 +107,8 @@ body {
 .section h2 { margin-top: 0; }
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .narrow { max-width: 800px; }
+.ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.instagram-media { max-width: 100% !important; width: 100% !important; min-width: 0 !important; }
 
 .site-footer {
   border-top: 1px solid #171a21;
@@ -122,6 +124,7 @@ body {
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
+  .ig-grid { grid-template-columns: 1fr; }
 }
 
 
