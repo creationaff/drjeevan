@@ -28,5 +28,20 @@
     "title": "Posture & ergonomics",
     "description": "Practical adjustments for desk setup, sleep and daily activities.",
     "image": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Shirodhara",
+    "description": "Warm oil stream therapy traditionally used to calm the nervous system.",
+    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Abhyanga (oil massage)",
+    "description": "Full-body oil massage to nourish tissues and improve circulation.",
+    "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Panchakarma (detox)",
+    "description": "Personalized cleansing protocols carried out under guidance.",
+    "image": "https://images.unsplash.com/photo-1604908177052-5e4a44c6ee3d?q=80&w=1200&auto=format&fit=crop"
   }
 ]
