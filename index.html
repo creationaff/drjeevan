@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr Jeevan — Neurologist, Ayurvedic Doctor & Osteopath</title>
+  <meta name="description" content="Consultations with Dr Jeevan, a neurologist, ayurvedic doctor, and osteopath. Book or send a message on Instagram.">
+  <meta property="og:title" content="Dr Jeevan — Neurologist, Ayurvedic Doctor & Osteopath">
+  <meta property="og:description" content="Consultations with Dr Jeevan. Message on Instagram to enquire or book.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://drjeevan.example/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">Dr Jeevan</div>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a id="ig-top" href="https://ig.me/m/DRJEEVAN_USERNAME" rel="noopener" target="_blank">Instagram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Neurologist, Ayurvedic Doctor & Osteopath</h1>
+          <p class="subtitle">Holistic, evidence-informed care for nervous system health, pain, and mobility.</p>
+          <div class="cta-row">
+            <a id="ig-cta" class="button primary" href="https://ig.me/m/DRJEEVAN_USERNAME" target="_blank" rel="noopener">Message on Instagram</a>
+            <a class="button ghost" href="#services">View services</a>
+          </div>
+          <p class="note">Prefer Instagram DMs for the fastest response.</p>
+        </div>
+        <div class="hero-card">
+          <div class="card">
+            <h3>New Patients</h3>
+            <ul>
+              <li>Neurology consultations</li>
+              <li>Ayurvedic diagnostics & lifestyle</li>
+              <li>Osteopathic manual therapy</li>
+            </ul>
+            <p class="muted">Appointments available by request. Send a DM to enquire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Neurology</h3>
+            <p>Evaluation and management of headaches, neuropathies, movement conditions, sleep, and more.</p>
+          </div>
+          <div class="card">
+            <h3>Ayurveda</h3>
+            <p>Personalized guidance on diet, herbs, and routines aligned with traditional Ayurvedic principles.</p>
+          </div>
+          <div class="card">
+            <h3>Osteopathy</h3>
+            <p>Gentle hands-on techniques to restore motion, reduce pain, and support the body’s self-regulation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section alt">
+      <div class="container narrow">
+        <h2>About</h2>
+        <p>Dr Jeevan integrates conventional neurology with Ayurvedic medicine and osteopathic principles to deliver whole-person care. Treatment plans are collaborative and tailored to your goals.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <strong>Dr Jeevan</strong>
+        <div class="muted">Neurologist • Ayurvedic Doctor • Osteopath</div>
+      </div>
+      <div class="footer-cta">
+        <a id="ig-footer" class="button small" href="https://ig.me/m/DRJEEVAN_USERNAME" target="_blank" rel="noopener">Message on Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var username = 'DRJEEVAN_USERNAME'; // TODO: replace with actual username
+      function tryOpenInstagramApp(event) {
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) return; // use web on desktop
+        event.preventDefault();
+        var appUrl = 'instagram://user?username=' + username;
+        var webUrl = 'https://ig.me/m/' + username;
+        var now = Date.now();
+        var timeout = setTimeout(function () {
+          if (Date.now() - now < 1600) {
+            window.location.href = webUrl;
+          }
+        }, 1200);
+        window.location.href = appUrl;
+        // Fallback in case browsers block custom schemes
+        setTimeout(function () {
+          try { window.open(webUrl, '_blank'); } catch (e) { window.location.href = webUrl; }
+          clearTimeout(timeout);
+        }, 1500);
+      }
+      ['ig-cta', 'ig-top', 'ig-footer'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('click', tryOpenInstagramApp);
+      });
+    })();
+  </script>
+</body>
+</html>
+
+

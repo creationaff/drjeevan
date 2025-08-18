@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: drjeevan
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    plan: free
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains; preload
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer-when-downgrade
+    routes:
+      - type: redirect
+        source: /instagram
+        destination: https://ig.me/m/DRJEEVAN_USERNAME
+        status: 302
+    # Replace with your real domain in Render after repo connect
+    # domains:
+    #   - yourdomain.com
+
+
