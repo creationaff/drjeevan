@@ -22,6 +22,7 @@
       <nav class="nav">
         <a href="#services">Services</a>
         <a href="#conditions">Conditions</a>
+        <a href="#treatments">Treatments</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
         <a id="ig-top" href="https://ig.me/m/ayurvedadrjeevan" rel="noopener" target="_blank">Instagram</a>
@@ -109,6 +110,13 @@
           <span class="badge">Posture & ergonomics</span>
         </div>
         <p class="muted" style="margin-top:12px">Care plans are individualized and may include neurology review, Ayurvedic guidance, and osteopathic techniques.</p>
+      </div>
+    </section>
+
+    <section id="treatments" class="section">
+      <div class="container">
+        <h2>Treatments</h2>
+        <div id="treatments-grid" class="treatments-grid"></div>
       </div>
     </section>
 
@@ -235,6 +243,40 @@
           if (window.instgrm && window.instgrm.Embeds) {
             window.instgrm.Embeds.process();
           }
+        })
+        .catch(function () { /* no-op */ });
+    })();
+  </script>
+  <script>
+    (function () {
+      var grid = document.getElementById('treatments-grid');
+      if (!grid) return;
+      fetch('treatments.json', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .then(function (items) {
+          if (!Array.isArray(items) || items.length === 0) return;
+          items.forEach(function (t) {
+            var card = document.createElement('div');
+            card.className = 'treat-card';
+            var img = document.createElement('img');
+            img.className = 'treat-image';
+            img.loading = 'lazy';
+            img.alt = t.title || 'Treatment image';
+            img.src = t.image;
+            var body = document.createElement('div');
+            body.className = 'treat-body';
+            var title = document.createElement('h3');
+            title.className = 'treat-title';
+            title.textContent = t.title || '';
+            var desc = document.createElement('p');
+            desc.className = 'treat-desc';
+            desc.textContent = t.description || '';
+            body.appendChild(title);
+            body.appendChild(desc);
+            card.appendChild(img);
+            card.appendChild(body);
+            grid.appendChild(card);
+          });
         })
         .catch(function () { /* no-op */ });
     })();

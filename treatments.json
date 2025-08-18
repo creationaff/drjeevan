@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Neurology consult",
+    "description": "Assessment of headaches, neuropathy, movement and sleep concerns, with a clear plan.",
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a077451f?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Osteopathic manual therapy",
+    "description": "Gentle techniques to restore motion, reduce pain, and support self-regulation.",
+    "image": "https://images.unsplash.com/photo-1613206487027-b2242b9b31af?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Ayurvedic herbs",
+    "description": "Targeted botanicals for digestion, sleep, and nervous system balance.",
+    "image": "https://images.unsplash.com/photo-1593011951047-1a5d5bfb6f73?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Nutrition guidance",
+    "description": "Simple, seasonal food choices aligned with your constitution.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Breath & routine",
+    "description": "Dinacharya, breathwork, and movement to support recovery and focus.",
+    "image": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "title": "Posture & ergonomics",
+    "description": "Practical adjustments for desk setup, sleep and daily activities.",
+    "image": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=1200&auto=format&fit=crop"
+  }
+]

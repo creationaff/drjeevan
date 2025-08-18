@@ -111,6 +111,8 @@ body {
 .narrow { max-width: 800px; }
 .ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .instagram-media { max-width: 100% !important; width: 100% !important; min-width: 0 !important; }
+.badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.badge { background: rgba(46,189,89,0.12); color: var(--text); border: 1px solid #143826; padding: 6px 10px; border-radius: 999px; font-size: 14px; }
 
 .site-footer {
   border-top: 1px solid #171a21;
@@ -123,10 +125,33 @@ body {
 }
 .muted { color: var(--muted); }
 
+/* Treatments grid */
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.treat-card {
+  border: 1px solid #143826;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0f241b;
+}
+.treat-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.treat-body { padding: 14px 16px; }
+.treat-title { margin: 0 0 6px; font-size: 18px; }
+.treat-desc { margin: 0; color: var(--muted); font-size: 14px; }
+
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
   .ig-grid { grid-template-columns: 1fr; }
+  .treatments-grid { grid-template-columns: 1fr; }
 }
 
 
