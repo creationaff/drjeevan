@@ -105,8 +105,14 @@
 
     <section id="about" class="section">
       <div class="container narrow">
-        <h2>About</h2>
-        <p>Dr Jeevan integrates conventional neurology with Ayurvedic medicine and osteopathic principles to deliver whole-person care. Treatment plans are collaborative and tailored to your goals.</p>
+        <h2>About Dr Jeevan</h2>
+        <p>Dr Jeevan integrates conventional neurology with Ayurvedic medicine and osteopathic principles to deliver whole‑person care. Plans are collaborative and tailored to your goals.</p>
+        <ul class="badges" style="margin-top:12px">
+          <li class="badge">ER doctor in hospitals — 5 years</li>
+          <li class="badge">Ayurvedic practitioner — 8 years</li>
+          <li class="badge">Neurologist</li>
+          <li class="badge">Osteopath — 20 years treating patients</li>
+        </ul>
       </div>
     </section>
 
@@ -213,6 +219,10 @@
               media.loading = 'lazy';
               media.alt = t.title || 'Treatment image';
               media.src = t.image;
+              media.onerror = function () {
+                this.onerror = null;
+                this.src = 'https://source.unsplash.com/1600x1200/?ayurveda,nature';
+              };
               card.appendChild(media);
             }
             var body = document.createElement('div');
