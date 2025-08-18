@@ -200,11 +200,21 @@
           items.forEach(function (t) {
             var card = document.createElement('div');
             card.className = 'treat-card';
-            var img = document.createElement('img');
-            img.className = 'treat-image';
-            img.loading = 'lazy';
-            img.alt = t.title || 'Treatment image';
-            img.src = t.image;
+            var media;
+            if (t.instagram) {
+              media = document.createElement('blockquote');
+              media.className = 'instagram-media';
+              media.setAttribute('data-instgrm-permalink', t.instagram);
+              media.setAttribute('data-instgrm-version', '14');
+              card.appendChild(media);
+            } else if (t.image) {
+              media = document.createElement('img');
+              media.className = 'treat-image';
+              media.loading = 'lazy';
+              media.alt = t.title || 'Treatment image';
+              media.src = t.image;
+              card.appendChild(media);
+            }
             var body = document.createElement('div');
             body.className = 'treat-body';
             var title = document.createElement('h3');
@@ -215,10 +225,12 @@
             desc.textContent = t.description || '';
             body.appendChild(title);
             body.appendChild(desc);
-            card.appendChild(img);
             card.appendChild(body);
             grid.appendChild(card);
           });
+          if (window.instgrm && window.instgrm.Embeds) {
+            window.instgrm.Embeds.process();
+          }
         })
         .catch(function () { /* no-op */ });
     })();
