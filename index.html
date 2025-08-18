@@ -13,15 +13,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M40 10 h20 v30 h30 v20 h-30 v30 h-20 v-30 h-30 v-20 h30 z' fill='%23d32f2f'/></svg>">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <div class="brand">Dr Jeevan</div>
+      <div class="brand"><span class="brand-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M40 10 h20 v30 h30 v20 h-30 v30 h-20 v-30 h-30 v-20 h30 z" fill="#d32f2f"/></svg></span>Dr Jeevan</div>
       <nav class="nav">
         <a href="#services">Services</a>
+        <a href="#conditions">Conditions</a>
         <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
         <a id="ig-top" href="https://ig.me/m/ayurvedadrjeevan" rel="noopener" target="_blank">Instagram</a>
       </nav>
     </div>
@@ -93,10 +95,72 @@
       </div>
     </section>
 
+    <section id="conditions" class="section">
+      <div class="container">
+        <h2>Conditions supported</h2>
+        <div class="badges">
+          <span class="badge">Headaches & migraines</span>
+          <span class="badge">Sleep issues</span>
+          <span class="badge">Stress & anxiety</span>
+          <span class="badge">Digestive balance</span>
+          <span class="badge">Neck & back pain</span>
+          <span class="badge">Joint mobility</span>
+          <span class="badge">Fatigue</span>
+          <span class="badge">Posture & ergonomics</span>
+        </div>
+        <p class="muted" style="margin-top:12px">Care plans are individualized and may include neurology review, Ayurvedic guidance, and osteopathic techniques.</p>
+      </div>
+    </section>
+
     <section id="about" class="section">
       <div class="container narrow">
         <h2>About</h2>
         <p>Dr Jeevan integrates conventional neurology with Ayurvedic medicine and osteopathic principles to deliver whole-person care. Treatment plans are collaborative and tailored to your goals.</p>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section alt">
+      <div class="container">
+        <h2>What patients say</h2>
+        <div class="cards">
+          <div class="card">
+            <p class="quote">“Clear, kind, and practical. My headaches are much better and I finally sleep through the night.”</p>
+            <div class="muted">— Patient, London</div>
+          </div>
+          <div class="card">
+            <p class="quote">“The combination of neurology and Ayurveda made everything click. I felt improvements within weeks.”</p>
+            <div class="muted">— Patient, Manchester</div>
+          </div>
+          <div class="card">
+            <p class="quote">“Gentle osteopathic work plus daily routine changes reduced my back pain more than anything else.”</p>
+            <div class="muted">— Patient, Birmingham</div>
+          </div>
+        </div>
+        <div class="muted" style="margin-top:12px">Individual results vary.</div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container narrow">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <h3>What happens in a first visit?</h3>
+            <p>We review your goals and health history, perform a focused exam, and agree on a plan which may include neurology review, Ayurvedic guidance on diet and routine, and osteopathic manual therapy.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do I need to prepare anything?</h3>
+            <p>Bring a list of medications and any recent letters or scans. If possible, share sleep, stress, or symptom notes from the last 1–2 weeks.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is Ayurveda safe with my current treatment?</h3>
+            <p>Recommendations are tailored to be compatible with your medical care. Please disclose all medicines and supplements so we can avoid interactions.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do I book?</h3>
+            <p>Send a message on Instagram and we’ll coordinate times: <a href="https://ig.me/m/ayurvedadrjeevan" target="_blank" rel="noopener">@ayurvedadrjeevan</a>.</p>
+          </div>
+        </div>
       </div>
     </section>
     <section id="instagram" class="section">
@@ -174,6 +238,29 @@
         })
         .catch(function () { /* no-op */ });
     })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What happens in a first visit?",
+        "acceptedAnswer": {"@type": "Answer", "text": "We review your goals and history, examine as appropriate, and agree on a plan which may include neurology review, Ayurvedic guidance, and osteopathic manual therapy."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to prepare anything?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Bring a list of medications and any recent letters or scans. Symptom notes from the last 1–2 weeks are helpful."}
+      },
+      {
+        "@type": "Question",
+        "name": "How do I book?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Send a message on Instagram to coordinate a time: @ayurvedadrjeevan."}
+      }
+    ]
+  }
   </script>
 </body>
 </html>
