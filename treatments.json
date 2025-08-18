@@ -2,46 +2,46 @@
   {
     "title": "Neurology consult",
     "description": "Assessment of headaches, neuropathy, movement and sleep concerns, with a clear plan.",
-    "image": "https://images.unsplash.com/photo-1516549655169-df83a077451f?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?neurology,doctor,consultation"
   },
   {
     "title": "Osteopathic manual therapy",
     "description": "Gentle techniques to restore motion, reduce pain, and support self-regulation.",
-    "image": "https://images.unsplash.com/photo-1613206487027-b2242b9b31af?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?osteopathy,manual-therapy,physiotherapy"
   },
   {
     "title": "Ayurvedic herbs",
     "description": "Targeted botanicals for digestion, sleep, and nervous system balance.",
-    "image": "https://images.unsplash.com/photo-1593011951047-1a5d5bfb6f73?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?ayurveda,herbs,spices"
   },
   {
     "title": "Nutrition guidance",
     "description": "Simple, seasonal food choices aligned with your constitution.",
-    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?ayurveda,healthy-food,vegetables"
   },
   {
     "title": "Breath & routine",
     "description": "Dinacharya, breathwork, and movement to support recovery and focus.",
-    "image": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?yoga,pranayama,meditation"
   },
   {
     "title": "Posture & ergonomics",
     "description": "Practical adjustments for desk setup, sleep and daily activities.",
-    "image": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?ergonomics,desk,posture"
   },
   {
     "title": "Shirodhara",
     "description": "Warm oil stream therapy traditionally used to calm the nervous system.",
-    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?shirodhara,spa,oil"
   },
   {
     "title": "Abhyanga (oil massage)",
     "description": "Full-body oil massage to nourish tissues and improve circulation.",
-    "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?abhyanga,ayurvedic-massage,spa"
   },
   {
     "title": "Panchakarma (detox)",
     "description": "Personalized cleansing protocols carried out under guidance.",
-    "image": "https://images.unsplash.com/photo-1604908177052-5e4a44c6ee3d?q=80&w=1200&auto=format&fit=crop"
+    "image": "https://source.unsplash.com/1600x1200/?panchakarma,ayurveda,therapy"
   }
 ]
