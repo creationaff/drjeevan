@@ -155,16 +155,27 @@ body::after {
   gap: 16px;
 }
 .treat-card {
-  border: 1px solid #143826;
-  border-radius: 14px;
+  position: relative;
+  border: 1px solid #1a4f34;
+  border-radius: 16px;
   overflow: hidden;
   background: #0f241b;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(137,255,179,0.06);
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
 }
+.treat-card:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.32), inset 0 1px 0 rgba(137,255,179,0.08); border-color: #2c7f53; }
 .treat-image {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+}
+.treat-card::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0; height: 44%;
+  background: linear-gradient(180deg, rgba(5,27,13,0.55), rgba(5,27,13,0));
+  pointer-events: none;
 }
 .treat-body { padding: 14px 16px; }
 .treat-title { margin: 0 0 6px; font-size: 18px; }
@@ -176,6 +187,15 @@ body::after {
   .cards { grid-template-columns: 1fr; }
   .ig-grid { grid-template-columns: 1fr; }
   .treatments-grid { grid-template-columns: 1fr; }
+}
+
+/* Floating contact button */
+.float-cta {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 
