@@ -10,38 +10,8 @@
     "image": "https://source.unsplash.com/1600x1200/?osteopathy,manual-therapy,physiotherapy"
   },
   {
-    "title": "Ayurvedic herbs",
-    "description": "Targeted botanicals for digestion, sleep, and nervous system balance.",
-    "image": "https://source.unsplash.com/1600x1200/?ayurveda,herbs,spices"
-  },
-  {
-    "title": "Nutrition guidance",
-    "description": "Simple, seasonal food choices aligned with your constitution.",
-    "image": "https://source.unsplash.com/1600x1200/?ayurveda,healthy-food,vegetables"
-  },
-  {
-    "title": "Breath & routine",
-    "description": "Dinacharya, breathwork, and movement to support recovery and focus.",
-    "image": "https://source.unsplash.com/1600x1200/?yoga,pranayama,meditation"
-  },
-  {
-    "title": "Posture & ergonomics",
-    "description": "Practical adjustments for desk setup, sleep and daily activities.",
-    "image": "https://source.unsplash.com/1600x1200/?ergonomics,desk,posture"
-  },
-  {
-    "title": "Shirodhara",
+    "title": "Shirodhara (Ayurveda)",
     "description": "Warm oil stream therapy traditionally used to calm the nervous system.",
-    "image": "https://source.unsplash.com/1600x1200/?shirodhara,spa,oil"
-  },
-  {
-    "title": "Abhyanga (oil massage)",
-    "description": "Full-body oil massage to nourish tissues and improve circulation.",
-    "image": "https://source.unsplash.com/1600x1200/?abhyanga,ayurvedic-massage,spa"
-  },
-  {
-    "title": "Panchakarma (detox)",
-    "description": "Personalized cleansing protocols carried out under guidance.",
-    "image": "https://source.unsplash.com/1600x1200/?panchakarma,ayurveda,therapy"
+    "image": "https://source.unsplash.com/1600x1200/?shirodhara,ayurveda,spa"
   }
 ]
