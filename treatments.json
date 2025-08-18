@@ -1,17 +1,37 @@
 [
   {
-    "title": "Neurology consult",
-    "description": "Assessment of headaches, neuropathy, movement and sleep concerns, with a clear plan.",
-    "image": "assets/ayurveda-set-1.jpg"
+    "title": "Evaluation Consultation",
+    "description": "Comprehensive evaluation of headaches, migraines, neuropathy, and movement disorders.",
+    "category": "Neurology",
+    "price": "$150",
+    "image": "assets/drjeevan1.png"
   },
   {
-    "title": "Osteopathic manual therapy",
-    "description": "Gentle techniques to restore motion, reduce pain, and support self-regulation.",
-    "image": "assets/ayurveda-set-2.jpg"
+    "title": "Osteopathy Treatment",
+    "description": "Gentle hands-on techniques to restore joint mobility and reduce muscular tension.",
+    "category": "Osteopathy",
+    "price": "$250",
+    "image": "assets/drjeevan2.png"
   },
   {
-    "title": "Shirodhara (Ayurveda)",
-    "description": "Warm oil stream therapy traditionally used to calm the nervous system.",
-    "image": "assets/shirodhara.jpg"
+    "title": "Abhyanga Oil Massage",
+    "description": "Traditional full-body Ayurvedic oil massage to nourish tissues and improve circulation.",
+    "category": "Ayurveda",
+    "price": "From $180",
+    "image": "assets/drjeevan4.png"
+  },
+  {
+    "title": "7-Day Panchakarma Detox",
+    "description": "Personalized Ayurvedic cleansing protocols to restore balance and vitality.",
+    "category": "Ayurveda",
+    "price": "$1,000",
+    "image": "assets/drjeevan5.png"
+  },
+  {
+    "title": "21-Day Panchakarma Detox",
+    "description": "Comprehensive detoxification and rejuvenation program with daily treatments.",
+    "category": "Ayurveda",
+    "price": "$3,000",
+    "image": "assets/drjeevan6.png"
   }
 ]
