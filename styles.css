@@ -322,10 +322,10 @@ body::before {
   margin-bottom: 32px;
 }
 
-/* Prevent layout shift if calendar grows; keep right panel stable */
+/* Prevent layout from being forced taller than needed */
 .time-slots-container,
 .calendar-container {
-  min-height: 420px;
+  min-height: initial;
 }
 
 /* Calendar Styles */
@@ -379,9 +379,10 @@ body::before {
 #calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 1px;
+  grid-template-rows: repeat(6, 36px);
+  gap: 6px;
   grid-column: 1 / -1; /* span full width of the header row */
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .calendar-day-header {
@@ -394,27 +395,21 @@ body::before {
 }
 
 .calendar-day {
-  padding: 12px;
+  padding: 6px;
   text-align: center;
   cursor: pointer;
   border-radius: 8px;
   transition: all .2s ease;
-  min-height: 40px;
+  min-height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Keep the calendar from growing too tall; allow scroll if needed */
+/* Make calendar compact; no internal scrolling */
 .calendar-container {
-  max-height: 520px;
-  overflow: hidden;
-}
-
-.calendar-container .calendar-grid {
-  overflow-y: auto;
-  max-height: 420px; /* header ~100px + grid 420px */
-  padding-right: 4px; /* room for scrollbar */
+  max-height: none;
+  overflow: visible;
 }
 
 .calendar-day:hover:not(.disabled) {
