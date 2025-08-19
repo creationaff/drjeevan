@@ -599,6 +599,63 @@
           updateCalendarDisplay();
         });
       }
+
+      // Populate phone country codes with all countries
+      function populateCountryCodes() {
+        var select = document.getElementById('phone-country');
+        if (!select) return;
+        var defaultCode = select.value || '+62';
+        fetch('https://restcountries.com/v3.1/all?fields=cca2,idd,name', { cache: 'no-cache' })
+          .then(function(r){ return r.ok ? r.json() : []; })
+          .then(function(list){
+            if (!Array.isArray(list) || list.length === 0) return;
+            // Build [{label, dial}] options
+            var options = [];
+            list.forEach(function(c){
+              if (!c || !c.idd || !c.idd.root) return;
+              var root = c.idd.root || '';
+              var suffixes = Array.isArray(c.idd.suffixes) && c.idd.suffixes.length ? c.idd.suffixes : [''];
+              var name = (c.name && c.name.common) ? c.name.common : (c.cca2 || '');
+              suffixes.forEach(function(suf){
+                var dial = (root + (suf || '')).replace(/\s+/g,'');
+                if (!dial) return;
+                options.push({ label: name + ' (' + dial + ')', dial: dial });
+              });
+            });
+            // Sort by country name (label)
+            options.sort(function(a,b){ return a.label.localeCompare(b.label); });
+            // Preserve current selection if possible
+            var current = defaultCode;
+            // Rebuild select
+            select.innerHTML = '';
+            // Add a few common options at top if present
+            var preferred = ['+62','+61','+65','+60','+91','+44','+1','+971'];
+            preferred.forEach(function(code){
+              var found = options.find(function(o){ return o.dial === code; });
+              if (found) {
+                var opt = document.createElement('option');
+                opt.value = found.dial;
+                opt.textContent = found.dial + ' ' + found.label.replace(' ('+found.dial+')','');
+                select.appendChild(opt);
+              }
+            });
+            // Add a separator (disabled option)
+            var sep = document.createElement('option');
+            sep.disabled = true; sep.textContent = '──────────';
+            select.appendChild(sep);
+            // Add all options
+            options.forEach(function(o){
+              var opt = document.createElement('option');
+              opt.value = o.dial;
+              opt.textContent = o.dial + ' ' + o.label.replace(' ('+o.dial+')','');
+              select.appendChild(opt);
+            });
+            // Restore selection
+            select.value = current;
+            if (!select.value) select.value = '+62';
+          })
+          .catch(function(){ /* ignore */ });
+      }
       
       function updateCalendarDisplay() {
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -830,7 +887,10 @@
       window.bookConsultation = bookConsultation;
       
       // Initialize calendar when page loads
-      document.addEventListener('DOMContentLoaded', initCalendar);
+      document.addEventListener('DOMContentLoaded', function(){
+        initCalendar();
+        populateCountryCodes();
+      });
     })();
   </script>
   
