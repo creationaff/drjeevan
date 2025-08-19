@@ -230,11 +230,98 @@ body::before {
 }
 .treat-card .instagram-media { width: 100% !important; min-width: 0 !important; margin: 0 !important; }
 
+/* Instagram Live Section */
+.live-section {
+  background: linear-gradient(135deg, rgba(74,124,89,0.05) 0%, rgba(212,165,116,0.08) 100%);
+  border-top: 1px solid rgba(74,124,89,0.1);
+  border-bottom: 1px solid rgba(74,124,89,0.1);
+}
+
+.live-card {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(74,124,89,0.2);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(45,62,47,0.1);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.live-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(45,62,47,0.15);
+}
+
+.live-schedule {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.live-icon {
+  font-size: 48px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
+}
+
+.live-details h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.live-time {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 12px;
+  background: rgba(74,124,89,0.1);
+  padding: 8px 16px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.live-description {
+  color: var(--muted);
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.live-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.live-note {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+  font-style: italic;
+}
+
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
   .ig-grid { grid-template-columns: 1fr; }
   .treatments-grid { grid-template-columns: 1fr; }
+  
+  .live-schedule {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  
+  .live-card {
+    padding: 24px 20px;
+  }
+  
+  .live-icon {
+    font-size: 40px;
+  }
 }
 
 /* Floating contact button */
