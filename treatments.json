@@ -4,34 +4,92 @@
     "description": "Comprehensive evaluation of headaches, migraines, neuropathy, and movement disorders.",
     "category": "Neurology",
     "price": "$150",
-    "image": "assets/drjeevan1.png"
+    "image": "assets/drjeevan1.png",
+    "detailedDescription": "A thorough neurological assessment combining modern diagnostic techniques with holistic evaluation methods. Dr Jeevan examines nervous system function, identifies underlying patterns, and develops personalized treatment strategies.",
+    "concept": "Integrative Neurology",
+    "benefits": [
+      "Comprehensive nervous system evaluation",
+      "Identification of root causes",
+      "Personalized treatment planning",
+      "Integration of conventional and holistic approaches"
+    ],
+    "duration": "60-90 minutes",
+    "includes": "Detailed history taking, neurological examination, movement assessment, and treatment plan development"
   },
   {
     "title": "Osteopathy Treatment",
     "description": "Gentle hands-on techniques to restore joint mobility and reduce muscular tension.",
     "category": "Osteopathy",
     "price": "$250",
-    "image": "assets/drjeevan2.png"
+    "image": "assets/drjeevan2.png",
+    "detailedDescription": "Osteopathic manual therapy focuses on the body's inherent ability to heal itself. Through gentle manipulation and mobilization techniques, we restore proper alignment, improve circulation, and enhance the body's natural healing mechanisms.",
+    "concept": "Structural Integration & Self-Healing",
+    "benefits": [
+      "Improved joint mobility and flexibility",
+      "Reduced pain and muscle tension",
+      "Enhanced circulation and lymphatic drainage",
+      "Better posture and movement patterns",
+      "Accelerated natural healing processes"
+    ],
+    "duration": "60 minutes",
+    "includes": "Postural assessment, manual therapy techniques, movement education, and home exercise recommendations"
   },
   {
     "title": "Abhyanga Oil Massage",
     "description": "Traditional full-body Ayurvedic oil massage to nourish tissues and improve circulation.",
     "category": "Ayurveda",
     "price": "From $180",
-    "image": "assets/drjeevan4.png"
+    "image": "assets/drjeevan4.png",
+    "detailedDescription": "Abhyanga is a cornerstone of Ayurvedic therapy, involving warm herbal oils applied in specific rhythmic strokes. This ancient practice nourishes the skin, calms the nervous system, and promotes deep relaxation while supporting the body's natural detoxification processes.",
+    "concept": "Ayurvedic Rejuvenation & Balance",
+    "benefits": [
+      "Deep tissue nourishment and hydration",
+      "Nervous system calming and stress relief",
+      "Improved circulation and lymphatic flow",
+      "Enhanced sleep quality",
+      "Balanced energy and vitality",
+      "Skin health and radiance"
+    ],
+    "duration": "60-75 minutes",
+    "includes": "Constitutional assessment, customized herbal oil selection, full-body massage, and post-treatment relaxation"
   },
   {
     "title": "7-Day Panchakarma Detox",
     "description": "Personalized Ayurvedic cleansing protocols to restore balance and vitality.",
     "category": "Ayurveda",
     "price": "$1,000",
-    "image": "assets/drjeevan5.png"
+    "image": "assets/drjeevan5.png",
+    "detailedDescription": "Panchakarma is Ayurveda's premier detoxification and rejuvenation program. This 7-day intensive protocol uses specific therapies to eliminate deep-seated toxins, reset digestive fire, and restore constitutional balance through personalized treatments.",
+    "concept": "Cellular Detoxification & Constitutional Reset",
+    "benefits": [
+      "Deep cellular detoxification",
+      "Digestive system reset and strengthening",
+      "Mental clarity and emotional balance",
+      "Improved energy and vitality",
+      "Enhanced immunity",
+      "Stress reduction and nervous system reset"
+    ],
+    "duration": "7 consecutive days",
+    "includes": "Daily consultations, customized treatments (abhyanga, swedana, specialized therapies), dietary guidance, herbal medicines, and lifestyle recommendations"
   },
   {
     "title": "21-Day Panchakarma Detox",
     "description": "Comprehensive detoxification and rejuvenation program with daily treatments.",
     "category": "Ayurveda",
     "price": "$3,000",
-    "image": "assets/drjeevan6.png"
+    "image": "assets/drjeevan6.png",
+    "detailedDescription": "The complete Panchakarma experience - a transformative 21-day journey of deep purification and rejuvenation. This comprehensive program addresses chronic imbalances, provides profound detoxification, and establishes lasting health patterns through intensive daily treatments and lifestyle integration.",
+    "concept": "Complete Constitutional Transformation",
+    "benefits": [
+      "Profound cellular regeneration",
+      "Complete digestive system restoration",
+      "Chronic condition management",
+      "Mental and emotional transformation",
+      "Lasting energy and vitality",
+      "Optimal immune function",
+      "Spiritual and physical renewal"
+    ],
+    "duration": "21 consecutive days",
+    "includes": "Comprehensive daily treatments, specialized Panchakarma procedures, personalized diet and lifestyle program, herbal medicine protocols, yoga and meditation guidance, and long-term wellness planning"
   }
 ]

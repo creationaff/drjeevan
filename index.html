@@ -20,6 +20,7 @@
     <div class="container">
       <div class="brand"><span class="brand-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M40 10 h20 v30 h30 v20 h-30 v30 h-20 v-30 h-30 v-20 h30 z" fill="#d32f2f"/></svg></span>Dr Jeevan</div>
       <nav class="nav">
+        <a href="#booking">Book Now</a>
         <a href="#treatments">Treatments</a>
         <a href="#services">Services</a>
         <a href="#instagram-live">Live Sessions</a>
@@ -33,11 +34,11 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <h1>Neurologist, Ayurvedic Doctor & Osteopath</h1>
+          <h1>Dr Jeevan Neurologist, Ayurveda & Osteopathy</h1>
           <p class="subtitle">Holistic, evidence-informed care for nervous system health, pain, and mobility.</p>
           <div class="cta-row">
-            <a id="ig-cta" class="button primary" href="https://ig.me/m/ayurvedadrjeevan" target="_blank" rel="noopener">Message on Instagram</a>
-            <a class="button ghost" href="#services">View services</a>
+            <button class="button primary" onclick="bookConsultation('General Consultation', '$120')">Book Consultation</button>
+            <a id="ig-cta" class="button ghost" href="https://ig.me/m/ayurvedadrjeevan" target="_blank" rel="noopener">Message on Instagram</a>
           </div>
           <p class="note">Prefer Instagram DMs for the fastest response.</p>
         </div>
@@ -90,6 +91,85 @@
           <div class="card">
             <h3>🥗 Nutrition</h3>
             <p>Simple, seasonal food guidance to improve energy, clarity, and recovery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="section booking-section">
+      <div class="container">
+        <h2>Book Your Consultation</h2>
+        <p class="booking-subtitle">Select a date and time slot for your personalized consultation with Dr Jeevan</p>
+        
+        <div class="booking-container">
+          <div class="calendar-container">
+            <div class="calendar-header">
+              <button id="prev-month" class="calendar-nav">&lt;</button>
+              <h3 id="calendar-month-year"></h3>
+              <button id="next-month" class="calendar-nav">&gt;</button>
+            </div>
+            <div class="calendar-grid">
+              <div class="calendar-day-header">Sun</div>
+              <div class="calendar-day-header">Mon</div>
+              <div class="calendar-day-header">Tue</div>
+              <div class="calendar-day-header">Wed</div>
+              <div class="calendar-day-header">Thu</div>
+              <div class="calendar-day-header">Fri</div>
+              <div class="calendar-day-header">Sat</div>
+              <div id="calendar-days"></div>
+            </div>
+          </div>
+          
+          <div class="time-slots-container">
+            <h4>Available Time Slots</h4>
+            <p class="selected-date">Please select a date first</p>
+            <div id="time-slots" class="time-slots"></div>
+          </div>
+        </div>
+        
+        <div id="booking-form-container" class="booking-form-container" style="display: none;">
+          <div class="booking-form-card">
+            <h4>Booking Details</h4>
+            <form id="booking-form">
+              <div class="form-group">
+                <label for="patient-name">Full Name *</label>
+                <input type="text" id="patient-name" name="name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="patient-email">Email *</label>
+                <input type="email" id="patient-email" name="email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="patient-phone">Phone Number</label>
+                <input type="tel" id="patient-phone" name="phone">
+              </div>
+              
+              <div class="form-group">
+                <label for="consultation-type">Service Type *</label>
+                <input type="text" id="consultation-type" name="type" readonly required>
+              </div>
+              
+              <div class="form-group">
+                <label for="patient-message">Brief description of your concern</label>
+                <textarea id="patient-message" name="message" rows="3" placeholder="Please describe your symptoms or reason for consultation..."></textarea>
+              </div>
+              
+              <div class="booking-summary">
+                <h5>Booking Summary</h5>
+                <p><strong>Service:</strong> <span id="summary-service"></span></p>
+                <p><strong>Price:</strong> <span id="summary-price"></span></p>
+                <p><strong>Date:</strong> <span id="summary-date"></span></p>
+                <p><strong>Time:</strong> <span id="summary-time"></span></p>
+                <p><strong>Duration:</strong> 1 hour</p>
+              </div>
+              
+              <div class="form-actions">
+                <button type="button" id="cancel-booking" class="button ghost">Cancel</button>
+                <button type="submit" class="button primary">Confirm Booking</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -163,6 +243,49 @@
 
   <a class="button primary float-cta" href="https://ig.me/m/ayurvedadrjeevan" target="_blank" rel="noopener">Message on Instagram</a>
 
+  <!-- Treatment Detail Modal -->
+  <div id="treatment-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title"></h3>
+        <button id="modal-close" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-concept">
+          <h4>Treatment Concept</h4>
+          <p id="modal-concept"></p>
+        </div>
+        
+        <div class="modal-description">
+          <h4>Detailed Description</h4>
+          <p id="modal-detailed-description"></p>
+        </div>
+        
+        <div class="modal-benefits">
+          <h4>Benefits</h4>
+          <ul id="modal-benefits-list"></ul>
+        </div>
+        
+        <div class="modal-details">
+          <div class="modal-detail-item">
+            <strong>Duration:</strong> <span id="modal-duration"></span>
+          </div>
+          <div class="modal-detail-item">
+            <strong>Price:</strong> <span id="modal-price"></span>
+          </div>
+          <div class="modal-detail-item">
+            <strong>Includes:</strong> <span id="modal-includes"></span>
+          </div>
+        </div>
+        
+        <div class="modal-actions">
+          <button id="modal-book-btn" class="button primary">Book This Treatment</button>
+          <button id="modal-close-btn" class="button ghost">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       var username = 'ayurvedadrjeevan';
@@ -229,6 +352,8 @@
           items.forEach(function (t) {
             var card = document.createElement('div');
             card.className = 'treat-card';
+            card.style.cursor = 'pointer';
+            card.setAttribute('data-treatment', JSON.stringify(t));
             var media;
             if (t.instagram) {
               media = document.createElement('blockquote');
@@ -276,6 +401,18 @@
             body.appendChild(title);
             body.appendChild(desc);
             if (t.category || t.price) body.appendChild(categoryPrice);
+            
+            // Add booking button
+            var bookButton = document.createElement('button');
+            bookButton.className = 'button primary book-treatment-btn';
+            bookButton.textContent = 'Book This Treatment';
+            bookButton.setAttribute('data-treatment-title', t.title || '');
+            bookButton.setAttribute('data-treatment-price', t.price || '');
+            bookButton.setAttribute('data-treatment-category', t.category || '');
+            bookButton.style.marginTop = '12px';
+            bookButton.style.width = '100%';
+            body.appendChild(bookButton);
+            
             card.appendChild(body);
             grid.appendChild(card);
           });
@@ -284,6 +421,327 @@
           }
         })
         .catch(function () { /* no-op */ });
+    })();
+  </script>
+
+  <script>
+    // Treatment Modal JavaScript
+    (function() {
+      let currentTreatmentData = null;
+      
+      // Handle treatment card clicks
+      document.addEventListener('click', function(e) {
+        const treatCard = e.target.closest('.treat-card');
+        if (treatCard && !e.target.classList.contains('book-treatment-btn')) {
+          const treatmentData = JSON.parse(treatCard.getAttribute('data-treatment'));
+          showTreatmentModal(treatmentData);
+        }
+      });
+      
+      function showTreatmentModal(treatment) {
+        currentTreatmentData = treatment;
+        
+        // Populate modal content
+        document.getElementById('modal-title').textContent = treatment.title;
+        document.getElementById('modal-concept').textContent = treatment.concept || 'Holistic Treatment Approach';
+        document.getElementById('modal-detailed-description').textContent = treatment.detailedDescription || treatment.description;
+        document.getElementById('modal-duration').textContent = treatment.duration || '60 minutes';
+        document.getElementById('modal-price').textContent = treatment.price;
+        document.getElementById('modal-includes').textContent = treatment.includes || 'Consultation and treatment';
+        
+        // Populate benefits list
+        const benefitsList = document.getElementById('modal-benefits-list');
+        benefitsList.innerHTML = '';
+        if (treatment.benefits && Array.isArray(treatment.benefits)) {
+          treatment.benefits.forEach(function(benefit) {
+            const li = document.createElement('li');
+            li.textContent = benefit;
+            benefitsList.appendChild(li);
+          });
+        }
+        
+        // Set up book button
+        const bookBtn = document.getElementById('modal-book-btn');
+        bookBtn.onclick = function() {
+          closeModal();
+          // Trigger booking flow
+          if (window.bookConsultation) {
+            window.bookConsultation(treatment.title, treatment.price);
+          }
+        };
+        
+        // Show modal
+        document.getElementById('treatment-modal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeModal() {
+        document.getElementById('treatment-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+        currentTreatmentData = null;
+      }
+      
+      // Close modal handlers
+      document.getElementById('modal-close').addEventListener('click', closeModal);
+      document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+      
+      // Close modal when clicking overlay
+      document.getElementById('treatment-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal();
+        }
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('treatment-modal').style.display === 'flex') {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    // Booking System JavaScript
+    (function() {
+      let currentDate = new Date();
+      let selectedDate = null;
+      let selectedTime = null;
+      let selectedService = null;
+      let selectedPrice = null;
+      
+      // Available time slots (4 per day, 1 hour each)
+      const timeSlots = [
+        '09:00 AM',
+        '11:00 AM', 
+        '02:00 PM',
+        '04:00 PM'
+      ];
+      
+      // Booked slots (in real implementation, this would come from a database)
+      const bookedSlots = {};
+      
+      function initCalendar() {
+        updateCalendarDisplay();
+        
+        document.getElementById('prev-month').addEventListener('click', function() {
+          currentDate.setMonth(currentDate.getMonth() - 1);
+          updateCalendarDisplay();
+        });
+        
+        document.getElementById('next-month').addEventListener('click', function() {
+          currentDate.setMonth(currentDate.getMonth() + 1);
+          updateCalendarDisplay();
+        });
+      }
+      
+      function updateCalendarDisplay() {
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+          'July', 'August', 'September', 'October', 'November', 'December'];
+        
+        document.getElementById('calendar-month-year').textContent = 
+          monthNames[currentDate.getMonth()] + ' ' + currentDate.getFullYear();
+        
+        const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+        const startDate = new Date(firstDay);
+        startDate.setDate(startDate.getDate() - firstDay.getDay());
+        
+        const calendarDays = document.getElementById('calendar-days');
+        calendarDays.innerHTML = '';
+        
+        const today = new Date();
+        
+        for (let i = 0; i < 42; i++) {
+          const cellDate = new Date(startDate);
+          cellDate.setDate(startDate.getDate() + i);
+          
+          const dayElement = document.createElement('div');
+          dayElement.className = 'calendar-day';
+          dayElement.textContent = cellDate.getDate();
+          
+          // Disable past dates and dates not in current month
+          if (cellDate < today || cellDate.getMonth() !== currentDate.getMonth()) {
+            dayElement.classList.add('disabled');
+          } else {
+            dayElement.addEventListener('click', function() {
+              selectDate(cellDate);
+            });
+          }
+          
+          calendarDays.appendChild(dayElement);
+        }
+      }
+      
+      function selectDate(date) {
+        selectedDate = date;
+        
+        // Update selected date styling
+        document.querySelectorAll('.calendar-day').forEach(day => {
+          day.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+        
+        // Update time slots
+        updateTimeSlots();
+        
+        // Update selected date display
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.querySelector('.selected-date').textContent = 
+          'Available slots for ' + date.toLocaleDateString('en-US', options);
+      }
+      
+      function updateTimeSlots() {
+        const timeSlotsContainer = document.getElementById('time-slots');
+        timeSlotsContainer.innerHTML = '';
+        
+        const dateKey = selectedDate.toISOString().split('T')[0];
+        const bookedForDate = bookedSlots[dateKey] || [];
+        
+        timeSlots.forEach(time => {
+          const slotElement = document.createElement('button');
+          slotElement.className = 'time-slot';
+          slotElement.textContent = time;
+          
+          if (bookedForDate.includes(time)) {
+            slotElement.classList.add('booked');
+            slotElement.disabled = true;
+          } else {
+            slotElement.addEventListener('click', function() {
+              selectTimeSlot(time, slotElement);
+            });
+          }
+          
+          timeSlotsContainer.appendChild(slotElement);
+        });
+      }
+      
+      function selectTimeSlot(time, element) {
+        selectedTime = time;
+        
+        // Update selected time styling
+        document.querySelectorAll('.time-slot').forEach(slot => {
+          slot.classList.remove('selected');
+        });
+        element.classList.add('selected');
+        
+        // Show booking form if service is selected
+        if (selectedService) {
+          showBookingForm();
+        }
+      }
+      
+      function showBookingForm() {
+        document.getElementById('booking-form-container').style.display = 'block';
+        document.getElementById('consultation-type').value = selectedService;
+        document.getElementById('summary-service').textContent = selectedService;
+        document.getElementById('summary-price').textContent = selectedPrice;
+        document.getElementById('summary-date').textContent = selectedDate.toLocaleDateString('en-US', { 
+          weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+        });
+        document.getElementById('summary-time').textContent = selectedTime;
+        
+        // Scroll to form
+        document.getElementById('booking-form-container').scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      // Handle treatment booking buttons
+      document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('book-treatment-btn')) {
+          selectedService = e.target.getAttribute('data-treatment-title');
+          selectedPrice = e.target.getAttribute('data-treatment-price');
+          
+          // Scroll to booking section
+          document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+          
+          // Show time slots if date is selected
+          if (selectedDate && selectedTime) {
+            showBookingForm();
+          }
+        }
+      });
+      
+      // Handle consultation booking (general booking button)
+      function bookConsultation(type, price) {
+        selectedService = type;
+        selectedPrice = price;
+        
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        
+        if (selectedDate && selectedTime) {
+          showBookingForm();
+        }
+      }
+      
+      // Handle form submission
+      document.getElementById('booking-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const bookingData = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          service: selectedService,
+          price: selectedPrice,
+          date: selectedDate.toLocaleDateString('en-US', { 
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+          }),
+          time: selectedTime,
+          message: formData.get('message')
+        };
+        
+        // Send booking to Instagram (this would be handled by a backend service)
+        sendBookingToInstagram(bookingData);
+      });
+      
+      // Cancel booking
+      document.getElementById('cancel-booking').addEventListener('click', function() {
+        document.getElementById('booking-form-container').style.display = 'none';
+        document.getElementById('booking-form').reset();
+      });
+      
+      function sendBookingToInstagram(bookingData) {
+        // Create Instagram message
+        const message = `🏥 NEW BOOKING REQUEST\\n\\n` +
+          `👤 Name: ${bookingData.name}\\n` +
+          `📧 Email: ${bookingData.email}\\n` +
+          `📱 Phone: ${bookingData.phone || 'Not provided'}\\n\\n` +
+          `🩺 Service: ${bookingData.service}\\n` +
+          `💰 Price: ${bookingData.price}\\n` +
+          `📅 Date: ${bookingData.date}\\n` +
+          `⏰ Time: ${bookingData.time}\\n\\n` +
+          `📝 Message: ${bookingData.message || 'No additional message'}\\n\\n` +
+          `Please confirm this appointment.`;
+        
+        // For now, we'll use a simple alert and redirect to Instagram
+        // In a real implementation, this would use Instagram's API or a webhook service
+        alert('Booking request submitted! You will be redirected to Instagram to complete the booking.');
+        
+        // Redirect to Instagram with pre-filled message
+        const instagramUrl = `https://ig.me/m/ayurvedadrjeevan`;
+        window.open(instagramUrl, '_blank');
+        
+        // Mark slot as booked (in real implementation, this would be saved to database)
+        const dateKey = selectedDate.toISOString().split('T')[0];
+        if (!bookedSlots[dateKey]) {
+          bookedSlots[dateKey] = [];
+        }
+        bookedSlots[dateKey].push(selectedTime);
+        
+        // Reset form and hide
+        document.getElementById('booking-form-container').style.display = 'none';
+        document.getElementById('booking-form').reset();
+        
+        // Update time slots display
+        updateTimeSlots();
+      }
+      
+      // Make functions globally available
+      window.bookConsultation = bookConsultation;
+      
+      // Initialize calendar when page loads
+      document.addEventListener('DOMContentLoaded', initCalendar);
     })();
   </script>
   
