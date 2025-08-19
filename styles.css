@@ -405,6 +405,12 @@ body::before {
   opacity: 0.5;
 }
 
+.calendar-day.other-month {
+  color: var(--muted);
+  opacity: 0.3;
+  cursor: default;
+}
+
 /* Time Slots */
 .time-slots-container {
   background: rgba(255,255,255,0.9);

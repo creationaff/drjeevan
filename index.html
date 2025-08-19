@@ -505,6 +505,7 @@
     // Booking System JavaScript
     (function() {
       let currentDate = new Date();
+      currentDate.setDate(1); // Set to first day of current month
       let selectedDate = null;
       let selectedTime = null;
       let selectedService = null;
@@ -525,8 +526,16 @@
         updateCalendarDisplay();
         
         document.getElementById('prev-month').addEventListener('click', function() {
-          currentDate.setMonth(currentDate.getMonth() - 1);
-          updateCalendarDisplay();
+          const today = new Date();
+          const prevMonth = new Date(currentDate);
+          prevMonth.setMonth(prevMonth.getMonth() - 1);
+          
+          // Don't allow navigation to months before current month
+          if (prevMonth.getFullYear() > today.getFullYear() || 
+              (prevMonth.getFullYear() === today.getFullYear() && prevMonth.getMonth() >= today.getMonth())) {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            updateCalendarDisplay();
+          }
         });
         
         document.getElementById('next-month').addEventListener('click', function() {
@@ -543,7 +552,6 @@
           monthNames[currentDate.getMonth()] + ' ' + currentDate.getFullYear();
         
         const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-        const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
         const startDate = new Date(firstDay);
         startDate.setDate(startDate.getDate() - firstDay.getDay());
         
@@ -551,22 +559,32 @@
         calendarDays.innerHTML = '';
         
         const today = new Date();
+        today.setHours(0, 0, 0, 0); // Reset time for accurate comparison
         
         for (let i = 0; i < 42; i++) {
           const cellDate = new Date(startDate);
           cellDate.setDate(startDate.getDate() + i);
+          cellDate.setHours(0, 0, 0, 0); // Reset time for accurate comparison
           
           const dayElement = document.createElement('div');
           dayElement.className = 'calendar-day';
           dayElement.textContent = cellDate.getDate();
           
-          // Disable past dates and dates not in current month
-          if (cellDate < today || cellDate.getMonth() !== currentDate.getMonth()) {
+          // Add different styling for dates not in current month
+          if (cellDate.getMonth() !== currentDate.getMonth()) {
+            dayElement.classList.add('other-month');
+          }
+          
+          // Disable past dates
+          if (cellDate < today) {
             dayElement.classList.add('disabled');
-          } else {
-            dayElement.addEventListener('click', function() {
-              selectDate(cellDate);
+          } else if (cellDate.getMonth() === currentDate.getMonth()) {
+            // Only make current month dates clickable
+            dayElement.addEventListener('click', function(e) {
+              e.preventDefault();
+              selectDate(new Date(cellDate));
             });
+            dayElement.style.cursor = 'pointer';
           }
           
           calendarDays.appendChild(dayElement);
@@ -580,7 +598,15 @@
         document.querySelectorAll('.calendar-day').forEach(day => {
           day.classList.remove('selected');
         });
-        event.target.classList.add('selected');
+        
+        // Find and highlight the clicked date
+        const dayElements = document.querySelectorAll('.calendar-day');
+        dayElements.forEach(dayEl => {
+          const dayNum = parseInt(dayEl.textContent);
+          if (dayNum === date.getDate() && !dayEl.classList.contains('other-month') && !dayEl.classList.contains('disabled')) {
+            dayEl.classList.add('selected');
+          }
+        });
         
         // Update time slots
         updateTimeSlots();
