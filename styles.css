@@ -176,6 +176,13 @@ body::before {
 }
 .muted { color: var(--muted); }
 
+/* Small version badge text */
+.version-badge { 
+  color: var(--muted); 
+  font-size: 12px; 
+  margin-top: 4px; 
+}
+
 /* Treatments grid */
 .treatments-grid {
   display: grid;

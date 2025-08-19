@@ -234,6 +234,7 @@
       <div>
         <strong>Dr Jeevan</strong>
         <div class="muted">Neurologist • Ayurvedic Doctor • Osteopath</div>
+        <div id="version-badge" class="muted version-badge"></div>
       </div>
       <div class="footer-cta">
         <a id="ig-footer" class="button small" href="https://ig.me/m/ayurvedadrjeevan" target="_blank" rel="noopener">Message on Instagram</a>
@@ -315,6 +316,18 @@
     })();
   </script>
   <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    (function(){
+      fetch('version.json', { cache: 'no-cache' })
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(v){
+          if(!v) return;
+          var el = document.getElementById('version-badge');
+          if (el) el.textContent = 'Build ' + v.build + ' • ' + v.commit;
+        })
+        .catch(function(){});
+    })();
+  </script>
   <script>
     (function () {
       var grid = document.getElementById('ig-grid');

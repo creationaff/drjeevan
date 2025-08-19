@@ -2,7 +2,9 @@ services:
   - type: web
     name: drjeevan
     env: static
-    buildCommand: ""
+    buildCommand: |
+      echo "Generating version.json" && \
+      echo "{\"commit\":\"$(git rev-parse --short HEAD)\",\"build\":\"$(git rev-list --count HEAD)\",\"date\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > version.json
     staticPublishPath: .
     plan: free
     pullRequestPreviewsEnabled: false
