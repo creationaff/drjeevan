@@ -96,6 +96,13 @@
       </div>
     </section>
 
+    <section id="treatments" class="section">
+      <div class="container">
+        <h2>Treatments</h2>
+        <div id="treatments-grid" class="treatments-grid"></div>
+      </div>
+    </section>
+
     <section id="booking" class="section booking-section">
       <div class="container">
         <h2>Book Your Consultation</h2>
@@ -184,13 +191,6 @@
             </form>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="treatments" class="section">
-      <div class="container">
-        <h2>Treatments</h2>
-        <div id="treatments-grid" class="treatments-grid"></div>
       </div>
     </section>
 
@@ -457,17 +457,6 @@
             body.appendChild(title);
             body.appendChild(desc);
             if (t.category || t.price) body.appendChild(categoryPrice);
-            
-            // Add booking button
-            var bookButton = document.createElement('button');
-            bookButton.className = 'button primary book-treatment-btn';
-            bookButton.textContent = 'Book This Treatment';
-            bookButton.setAttribute('data-treatment-title', t.title || '');
-            bookButton.setAttribute('data-treatment-price', t.price || '');
-            bookButton.setAttribute('data-treatment-category', t.category || '');
-            bookButton.style.marginTop = '12px';
-            bookButton.style.width = '100%';
-            body.appendChild(bookButton);
             
             card.appendChild(body);
             grid.appendChild(card);
