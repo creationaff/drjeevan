@@ -167,7 +167,9 @@
               
               <div class="form-group">
                 <label for="consultation-type">Service Type *</label>
-                <input type="text" id="consultation-type" name="type" readonly required>
+                <select id="consultation-type" name="type" required>
+                  <option value="">Select a service…</option>
+                </select>
               </div>
               
               <div class="form-group">
@@ -750,6 +752,8 @@
           } else {
             slotElement.addEventListener('click', function() {
               selectTimeSlot(time, slotElement);
+              // Immediately show the booking form so user can choose a service
+              showBookingForm();
             });
           }
           
@@ -774,9 +778,11 @@
       
       function showBookingForm() {
         document.getElementById('booking-form-container').style.display = 'block';
-        document.getElementById('consultation-type').value = selectedService;
-        document.getElementById('summary-service').textContent = selectedService;
-        document.getElementById('summary-price').textContent = selectedPrice;
+        if (selectedService) {
+          document.getElementById('consultation-type').value = selectedService;
+          document.getElementById('summary-service').textContent = selectedService;
+          document.getElementById('summary-price').textContent = selectedPrice || '';
+        }
         document.getElementById('summary-date').textContent = selectedDate.toLocaleDateString('en-US', { 
           weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
         });
@@ -786,6 +792,37 @@
         document.getElementById('booking-form-container').scrollIntoView({ behavior: 'smooth' });
       }
       
+      // Populate services list from treatments.json
+      function populateServicesDropdown() {
+        var select = document.getElementById('consultation-type');
+        if (!select) return;
+        // Add a default general consultation option
+        var defaultOpt = document.createElement('option');
+        defaultOpt.value = 'General Consultation';
+        defaultOpt.textContent = 'General Consultation';
+        select.appendChild(defaultOpt);
+        fetch('treatments.json', { cache: 'no-cache' })
+          .then(function(r){ return r.ok ? r.json() : []; })
+          .then(function(items){
+            if (!Array.isArray(items)) return;
+            items.forEach(function(t){
+              var opt = document.createElement('option');
+              opt.value = t.title;
+              opt.textContent = t.title + (t.price ? ' — ' + t.price : '');
+              opt.setAttribute('data-price', t.price || '');
+              select.appendChild(opt);
+            });
+          })
+          .catch(function(){});
+        // Sync summary when user changes service in dropdown
+        select.addEventListener('change', function(){
+          selectedService = this.value || '';
+          selectedPrice = (this.selectedOptions[0] && this.selectedOptions[0].getAttribute('data-price')) || '';
+          document.getElementById('summary-service').textContent = selectedService;
+          document.getElementById('summary-price').textContent = selectedPrice;
+        });
+      }
+
       // Handle treatment booking buttons
       document.addEventListener('click', function(e) {
         if (e.target.classList.contains('book-treatment-btn')) {
@@ -809,9 +846,7 @@
         
         document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
         
-        if (selectedDate && selectedTime) {
-          showBookingForm();
-        }
+        if (selectedDate && selectedTime) showBookingForm();
       }
       
       // Handle form submission
@@ -891,6 +926,7 @@
       // Initialize calendar when page loads
       document.addEventListener('DOMContentLoaded', function(){
         initCalendar();
+        populateServicesDropdown();
         populateCountryCodes();
       });
     })();
