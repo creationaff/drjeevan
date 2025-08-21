@@ -166,6 +166,37 @@ body::before {
   font-weight: 500;
 }
 
+/* Tooltips for skill badges */
+.badge[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+.badge[data-tooltip]:hover::after,
+.badge[data-tooltip]:focus::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  width: max(220px, 40ch);
+  max-width: min(90vw, 520px);
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--text);
+  border: 1px solid rgba(74,124,89,0.25);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(45,62,47,0.15);
+  z-index: 5;
+}
+.badge[data-tooltip]:hover::before,
+.badge[data-tooltip]:focus::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 100%;
+  border: 8px solid transparent;
+  border-bottom-color: #fff;
+}
+
 .site-footer { 
   border-top: 1px solid rgba(212,165,116,0.3); 
   padding: 32px 0; 
