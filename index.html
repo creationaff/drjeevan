@@ -194,6 +194,8 @@
       </div>
     </section>
 
+    
+
     <section id="instagram-live" class="section live-section">
       <div class="container">
         <h2>Free Live Consultations</h2>
@@ -457,6 +459,17 @@
             body.appendChild(title);
             body.appendChild(desc);
             if (t.category || t.price) body.appendChild(categoryPrice);
+            
+            // Add booking button
+            var bookButton = document.createElement('button');
+            bookButton.className = 'button primary book-treatment-btn';
+            bookButton.textContent = 'Book This Treatment';
+            bookButton.setAttribute('data-treatment-title', t.title || '');
+            bookButton.setAttribute('data-treatment-price', t.price || '');
+            bookButton.setAttribute('data-treatment-category', t.category || '');
+            bookButton.style.marginTop = '12px';
+            bookButton.style.width = '100%';
+            body.appendChild(bookButton);
             
             card.appendChild(body);
             grid.appendChild(card);
